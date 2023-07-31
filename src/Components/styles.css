@@ -1,0 +1,109 @@
+.header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    height: 6rem;
+}
+
+.logo{
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+
+.nav-items>ul{
+    list-style: none;
+    display: flex;
+    margin-right: 2rem;
+}
+
+.nav-items>ul>li{
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.pizzeria-img{
+    width: 60px;
+}
+
+.res-card{
+    z-index: 1;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+    height: 18em;
+}
+
+.res-card:hover{
+    transform: scale(1.05);
+}
+
+
+
+.res-desc{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
+
+    margin-bottom: 0.5 rem;
+}
+
+.res-name{
+    margin: 10px;
+}
+
+.res-title{
+    font-size: 17px;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.res-food{
+    color: #686b78;
+    font-size: 13px;
+    margin-top: 4px;
+    margin-bottom: 1rem;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title{
+    margin-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+}
+
+.foodImage{
+    width: 100px;
+}
+
+.icon-star::before {
+    content: "\2605";
+    color:white;
+    background-color: green;
+    padding: 4px;
+    height: 1.5rem;
+     /* Unicode code point for a star symbol (★) */
+    /* Add any additional styles like font size, color, etc. */
+  }
+
+.rating{
+    color: white;
+    background-color: green;
+    padding: 4px;
+    height: 1.5rem;
+}
+
+
+  
