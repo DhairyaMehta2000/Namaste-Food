@@ -67,7 +67,7 @@ const Body = () => {
           placeholder="Search Restaurants"
         />
         <button
-          className="bg-pink-500 text-white rounded-lg p-2 mr-2 mb-2"
+          className="bg-blue-500 text-white rounded-lg p-2 mr-2 mb-2"
           onClick={searchResByName}
         >
           Search
