@@ -19,6 +19,14 @@ const useFetchRestaurant = (id) => {
         id
     );
     const jsonData = await data.json();
+    const categories1 = jsonData?.data?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter((item)=>
+      item.card.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    )
+    const categories2 = jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter((item)=>
+    item.card.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  )
+    // console.log(jsonData?.data?.cards[1])
+    
 
     // I dont know how the swiggy api is going to give me data. somtimes it will give menu on cards[1]
     // and sometimes it will give me data on cards[2] that is why this if statement exists.
@@ -28,16 +36,18 @@ const useFetchRestaurant = (id) => {
         ?.card?.card?.itemCards
     ) {
       setMenu(
-        jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-          ?.card?.card?.itemCards
+        categories2
       );
     } else {
+      
       setMenu(
-        jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-          ?.card?.card?.itemCards
+        categories1
       );
+      
+      // console.log(jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR)
     }
   };
+  // console.log(menu)
   const fetchDetails = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=" +
@@ -46,10 +56,11 @@ const useFetchRestaurant = (id) => {
     const jsonData = await data.json();
     // setting the rest of the details of restaurant
     setDetails(jsonData?.data?.cards[0].card.card.info);
+    // console.log(jsonData)
     // console.log(jsonData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards);
     // console.log("setDetails = " + jsonData.data.cards[0].card.card.info);
   };
-
+  
   return [menu, details];
 };
 

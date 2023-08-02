@@ -3,7 +3,7 @@
 const MenuDetail = (props)=>{
     // console.log(props.data)
     return(
-        <div>
+        <div className="flex items-center justify-center font-bold mt-3 mb-3" >
             <h1>
                  {props.data.name}
             </h1>

@@ -8,14 +8,16 @@ const RestaurantMenu = () => {
   //getting the dynamic id from the route using the useParams Hook
   const { id } = useParams();
 
-const [menu,details] = useFetchRestaurant(id)
+  const [menu, details] = useFetchRestaurant(id);
+  // console.log(menu);
   return (
     <div>
-        {/* rendering the Menu Component and giving the props as details to extract name,etc */}
+      {/* 2 me se details nikalna hai */}
+      {/* rendering the Menu Component and giving the props as details to extract name,etc */}
       <MenuDetail data={details} />
-        {/* mapping over the menu cards array and rendering the menu items */}
-      {menu.map((item) => (
-        <MenuItem key={item.card.info.id} data={item.card.info} />
+      {/* mapping over the menu cards array and rendering the menu items */}
+      {menu.map((item,index) => (
+        <MenuItem key={index} data={item} />
       ))}
     </div>
   );
