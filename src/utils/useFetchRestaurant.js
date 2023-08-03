@@ -25,27 +25,21 @@ const useFetchRestaurant = (id) => {
     const categories2 = jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter((item)=>
     item.card.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   )
-    // console.log(jsonData?.data?.cards[1])
+    // console.log(jsonData)
+    // console.log(categories2)
     
 
     // I dont know how the swiggy api is going to give me data. somtimes it will give menu on cards[1]
     // and sometimes it will give me data on cards[2] that is why this if statement exists.
     // wherever the data will contain itemCards i am taking that cards[i]
-    if (
-      jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-        ?.card?.card?.itemCards
-    ) {
-      setMenu(
-        categories2
-      );
-    } else {
-      
-      setMenu(
-        categories1
-      );
+    if(categories1!==undefined){
+      setMenu(categories1)
+    }else{
+      setMenu(categories2)
+    }
       
       // console.log(jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR)
-    }
+    
   };
   // console.log(menu)
   const fetchDetails = async () => {

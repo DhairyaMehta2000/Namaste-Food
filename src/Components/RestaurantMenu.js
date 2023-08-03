@@ -9,7 +9,7 @@ const RestaurantMenu = () => {
   const { id } = useParams();
 
   const [menu, details] = useFetchRestaurant(id);
-  // console.log(menu);
+  console.log(menu);
   return (
     <div>
       {/* 2 me se details nikalna hai */}
