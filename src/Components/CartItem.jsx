@@ -1,14 +1,14 @@
-import React from "react";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { removeItem } from "../utils/cartSlice";
 
-const SimpleAccordion = (props) => {
-  const dispatch = useDispatch();
-  const handleAddItem = (item) => {
-    dispatch(addItem(item));
-    // console.log(item)
-  };
-  const imageId = props.data.card.info.imageId;
+const CartItem = (props) => {
+    const imageId = props.data.card.info.imageId;
+    const dispatch = useDispatch()
+    
+    const handleRemoveItem=(item)=>{
+        dispatch(removeItem(item))
+    }
+
   return (
     <div className="px-4 py-2">
       <div className="flex items-center mb-4 border-b-2">
@@ -27,14 +27,14 @@ const SimpleAccordion = (props) => {
           </span>
         </div>
         <button
-          onClick={() => handleAddItem(props.data)}
+          onClick={()=>handleRemoveItem(props.data.card.info.id)}
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded"
         >
-          Add
+          Remove
         </button>
       </div>
     </div>
   );
 };
 
-export default SimpleAccordion;
+export default CartItem;

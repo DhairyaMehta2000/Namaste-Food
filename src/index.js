@@ -8,7 +8,7 @@ import Error from "./Components/Error";
 import Contact from "./Components/Contact";
 import Body from "./Components/Body";
 import RestaurantMenu from "./Components/RestaurantMenu";
-// import Shimmer from "./Shimmer";
+import Cart from "./Components/Cart";
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -28,15 +28,20 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path:"/restaurant/:id",
-        element:<RestaurantMenu />
-      }
+        path: "/restaurant/:id",
+        element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<>
-<RouterProvider router={appRouter} />
-</>
+root.render(
+  <>
+    <RouterProvider router={appRouter} />
+  </>
 );

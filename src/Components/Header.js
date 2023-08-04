@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { resLogo } from "../utils/constants";
-import './styles.css'
+import "./styles.css";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 const Header = () => {
   // Creating state to know value of Login status
   const [logStatus, setLogStatus] = useState("Login");
-
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="header">
       <div className="logo">
@@ -19,6 +20,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart - {cartItems.length}</Link>
           </li>
         </ul>
 
